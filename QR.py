@@ -45,7 +45,6 @@ def start():
 
         reader()
         print(clock)
-        #updates gui without needing threading
         window.update_idletasks()
         window.update()
 
@@ -69,22 +68,20 @@ window.title("Barcode Scanner")
 window.geometry("240x200")
 window.minsize(240, 200)
 window.maxsize(240, 200)
-Start = PhotoImage(file="start.png")
-Reset = PhotoImage(file="reset.png")
-Stop = PhotoImage(file="Stop.png")
+
 window.configure(background="black")
 Label(window, text="Job Number:", fg="white", background="black", font="none 12 bold") .grid(row=1, column=0, sticky=W)
 
-job_entry = Entry(window, width=18, bg="grey")
+job_entry = Entry(window, width=20, bg="white")
 job_entry.grid(row=1, column=1, sticky=W)
 
-button1 = tkinter.Button(image=Start, bd=0, bg="black", command=start)
-button1.grid(row=2, column=0, sticky=E)
+button_start = tkinter.Button(text="Start", bd=3, bg="white", padx=25, pady=25, relief=GROOVE, command=start)
+button_start.grid(row=2, column=0, sticky=E)
 
-button2 = tkinter.Button(image=Reset, bd=0, bg="black", command=reset)
-button2.grid(row=2, column=1, sticky=E)
+button_reset = tkinter.Button(text="Reset", bd=3, bg="white", padx=25, pady=25, relief=GROOVE, command=reset)
+button_reset.grid(row=2, column=1, sticky=E)
 
-button3 = tkinter.Button(image=Stop, bd=0, bg="black", command=stop_button)
-button3.grid(row=3, column=0, sticky=E)
+button_stop = tkinter.Button(text="Stop", bd=3, bg="white", padx=25, pady=25, relief=GROOVE, command=stop_button)
+button_stop.grid(row=4, column=0, sticky=E)
 
 window.mainloop()
